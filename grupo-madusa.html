@@ -1418,7 +1418,6 @@
 
         event.preventDefault();
         scrollToAnchorTarget(hash);
-        history.replaceState(null, '', hash);
       });
     });
 
@@ -1490,10 +1489,6 @@
     applyTranslations(currentLang);
     menuToggle.textContent = '☰';
     loadProjectImages();
-
-    if (window.location.hash) {
-      scrollToAnchorTarget(window.location.hash);
-    }
   </script>
 </body>
 </html>
