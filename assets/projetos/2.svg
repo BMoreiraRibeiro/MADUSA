@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1200" viewBox="0 0 1600 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Projeto comercial</title>
+  <desc id="desc">Imagem exemplo de solução AVAC para espaço comercial.</desc>
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="#e8f3fb"/>
+      <stop offset="100%" stop-color="#d2e7f8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1200" fill="url(#bg2)"/>
+  <rect x="100" y="120" width="1400" height="960" rx="42" fill="#ffffff"/>
+  <rect x="180" y="220" width="1240" height="200" rx="22" fill="#123860" fill-opacity="0.92"/>
+  <rect x="220" y="500" width="300" height="420" rx="20" fill="#2c6ca3" fill-opacity="0.2"/>
+  <rect x="560" y="500" width="300" height="420" rx="20" fill="#2c6ca3" fill-opacity="0.15"/>
+  <rect x="900" y="500" width="480" height="420" rx="20" fill="#f08a24" fill-opacity="0.22"/>
+  <text x="800" y="350" text-anchor="middle" font-family="Barlow, Arial, sans-serif" font-size="64" font-weight="700" fill="#ffffff">Solução Comercial</text>
+  <text x="800" y="1010" text-anchor="middle" font-family="Barlow, Arial, sans-serif" font-size="54" font-weight="700" fill="#123860">Projeto Comercial · Exemplo</text>
+</svg>

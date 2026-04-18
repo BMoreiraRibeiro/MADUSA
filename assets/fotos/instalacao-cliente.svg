@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Placeholder instalacao cliente</title>
+  <desc id="desc">Substituir por foto real de instalacao em cliente</desc>
+  <rect width="1200" height="900" fill="#edf5fb" />
+  <rect x="110" y="110" width="980" height="680" rx="30" fill="#ffffff" stroke="#2c6ca3" stroke-width="10" />
+  <rect x="230" y="250" width="200" height="200" rx="20" fill="#2c6ca3" opacity="0.78" />
+  <rect x="500" y="250" width="470" height="40" rx="12" fill="#1f5686" opacity="0.78" />
+  <rect x="500" y="325" width="380" height="40" rx="12" fill="#1f5686" opacity="0.48" />
+  <rect x="500" y="400" width="300" height="40" rx="12" fill="#1f5686" opacity="0.35" />
+  <text x="600" y="690" text-anchor="middle" font-family="Barlow, Arial, sans-serif" font-size="44" fill="#123860">FOTO REAL: INSTALACAO</text>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Placeholder manutencao tecnica</title>
+  <desc id="desc">Substituir por foto real de manutencao</desc>
+  <rect width="1200" height="900" fill="#f0f7fd" />
+  <rect x="100" y="100" width="1000" height="700" rx="30" fill="none" stroke="#2c6ca3" stroke-width="12" />
+  <circle cx="350" cy="380" r="115" fill="#1f5686" opacity="0.82" />
+  <rect x="510" y="280" width="420" height="70" rx="14" fill="#123860" opacity="0.84" />
+  <rect x="510" y="390" width="360" height="70" rx="14" fill="#123860" opacity="0.58" />
+  <rect x="510" y="500" width="270" height="70" rx="14" fill="#123860" opacity="0.38" />
+  <text x="600" y="690" text-anchor="middle" font-family="Barlow, Arial, sans-serif" font-size="44" fill="#123860">FOTO REAL: MANUTENCAO</text>
+</svg>
