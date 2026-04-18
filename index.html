@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grupo Madusa | Climatização AVAC</title>
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <meta name="description" content="Grupo Madusa: instalação, manutenção e assistência técnica AVAC para habitação, comércio e indústria." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --blue-900: #123860;
+      --blue-700: #1f5686;
+      --blue-600: #2c6ca3;
+      --white: #ffffff;
+      --ice: #f4f8fb;
+      --slate: #4f6b84;
+      --ink: #10253d;
+      --accent: #f08a24;
+      --accent-dark: #ce6f15;
+      --radius: 18px;
+      --shadow: 0 14px 34px rgba(16, 37, 61, 0.1);
+      --font-h: 'Barlow Condensed', sans-serif;
+      --font-b: 'Barlow', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-b);
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 5% 2%, rgba(44, 108, 163, 0.15), transparent 35%),
+        linear-gradient(180deg, #ffffff 0%, #f8fbfd 100%);
+      line-height: 1.55;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: min(1120px, 92vw);
+      margin-inline: auto;
+    }
+
+    .top-cta {
+      background: var(--blue-900);
+      color: var(--white);
+      font-size: 0.94rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .top-cta .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+    }
+
+    .top-cta strong {
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .top-cta a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      padding: 0.44rem 0.8rem;
+      border-radius: 999px;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .top-cta a:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.7);
+    }
+
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(31, 86, 134, 0.12);
+      overflow: visible;
+    }
+
+    .site-nav .container {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      text-decoration: none;
+      color: var(--blue-900);
+      display: block;
+      position: relative;
+      width: 118px;
+      height: 0;
+      align-self: flex-start;
+      overflow: visible;
+    }
+
+    .brand-logo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 132px;
+      height: 132px;
+      object-fit: contain;
+      flex-shrink: 0;
+      filter: drop-shadow(0 8px 18px rgba(16, 37, 61, 0.24));
+      z-index: 3;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .nav-links a {
+      font-family: var(--font-h);
+      text-transform: uppercase;
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      color: var(--blue-700);
+      font-weight: 700;
+      font-size: 0.88rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-dark);
+    }
+
+    .menu-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: 0;
+      font-size: 1.42rem;
+      color: var(--blue-900);
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+
+    .menu-toggle:hover {
+      background: rgba(31, 86, 134, 0.08);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
+    .lang-toggle {
+      border: 1px solid rgba(31, 86, 134, 0.25);
+      background: var(--white);
+      color: var(--blue-900);
+      font-family: var(--font-h);
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 999px;
+      min-width: 74px;
+      padding: 0.45rem 0.65rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+    }
+
+    .lang-toggle:hover {
+      border-color: var(--blue-700);
+      color: var(--blue-700);
+    }
+
+    .lang-flag {
+      width: 18px;
+      height: 13px;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .lang-flag svg {
+      width: 18px;
+      height: 13px;
+      display: block;
+      border-radius: 2px;
+      box-shadow: 0 0 0 1px rgba(16, 37, 61, 0.12);
+    }
+
+    .btn {
+      border: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      justify-content: center;
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 0.82rem 1.2rem;
+      font-size: 0.9rem;
+      font-family: var(--font-h);
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid rgba(31, 86, 134, 0.25);
+      color: var(--blue-900);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--blue-700);
+      color: var(--blue-700);
+      transform: translateY(-1px);
+    }
+
+    .hero {
+      padding: 3rem 0 1.5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+
+    .hero-text h1 {
+      font-family: var(--font-h);
+      font-size: clamp(2.4rem, 10vw, 4.6rem);
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      line-height: 0.94;
+      margin-bottom: 1rem;
+      color: var(--blue-900);
+    }
+
+    .hero-text h1 span {
+      color: var(--accent-dark);
+    }
+
+    .hero-text p {
+      color: var(--slate);
+      max-width: 56ch;
+      margin-bottom: 1.2rem;
+      font-size: 1.02rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.1rem;
+    }
+
+    .hero-stats {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.7rem;
+    }
+
+    .hero-stats li {
+      background: var(--white);
+      border: 1px solid rgba(31, 86, 134, 0.12);
+      border-radius: 13px;
+      padding: 0.8rem;
+      font-size: 0.9rem;
+      color: var(--blue-700);
+      box-shadow: 0 8px 20px rgba(31, 86, 134, 0.08);
+    }
+
+    .hero-media {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 0.62rem;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(31, 86, 134, 0.12);
+      animation: float-in 0.9s ease forwards;
+      opacity: 0;
+      transform: translateY(14px);
+    }
+
+    @keyframes float-in {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-media img {
+      width: 100%;
+      border-radius: 14px;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      background: linear-gradient(135deg, #dfeaf3, #eef5fa);
+    }
+
+    .section {
+      padding: 3.4rem 0;
+    }
+
+    .section h2 {
+      font-family: var(--font-h);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: clamp(1.9rem, 7vw, 3.1rem);
+      color: var(--blue-900);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-intro {
+      color: var(--slate);
+      margin-bottom: 1.5rem;
+      max-width: 64ch;
+    }
+
+    .services-grid {
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .service-card {
+      background: var(--white);
+      border: 1px solid rgba(31, 86, 134, 0.12);
+      border-radius: var(--radius);
+      padding: 1rem;
+      display: grid;
+      gap: 0.5rem;
+      box-shadow: 0 8px 24px rgba(16, 37, 61, 0.06);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(240, 138, 36, 0.6);
+    }
+
+    .service-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      font-size: 1.15rem;
+      background: rgba(44, 108, 163, 0.12);
+    }
+
+    .service-card h3 {
+      font-family: var(--font-h);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--blue-900);
+      font-size: 1.32rem;
+    }
+
+    .service-card p {
+      color: var(--slate);
+      font-size: 0.95rem;
+    }
+
+    .projects-carousel {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .projects-frame {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 0.55rem;
+      border: 1px solid rgba(31, 86, 134, 0.12);
+      box-shadow: 0 8px 24px rgba(16, 37, 61, 0.06);
+    }
+
+    .projects-frame img {
+      width: 100%;
+      border-radius: 14px;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      background: linear-gradient(135deg, #d8e8f4, #f0f7fd);
+    }
+
+    .projects-frame figcaption {
+      font-size: 0.9rem;
+      color: var(--slate);
+      margin: 0.65rem 0.42rem 0.42rem;
+      font-weight: 600;
+    }
+
+    .carousel-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid rgba(31, 86, 134, 0.2);
+      background: var(--white);
+      color: var(--blue-700);
+      font-size: 1.35rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .carousel-btn:hover {
+      background: var(--blue-700);
+      color: var(--white);
+      transform: translateY(-1px);
+    }
+
+    .carousel-btn:disabled {
+      opacity: 0.4;
+      cursor: default;
+      transform: none;
+    }
+
+    .projects-help {
+      color: var(--slate);
+      font-size: 0.88rem;
+      margin-top: 0.8rem;
+    }
+
+    .trust {
+      background: linear-gradient(135deg, var(--blue-900), var(--blue-700));
+      color: var(--white);
+      border-radius: 28px;
+      padding: 1.35rem;
+      box-shadow: 0 18px 40px rgba(18, 56, 96, 0.28);
+    }
+
+    .trust h2 {
+      color: var(--white);
+    }
+
+    .trust-list {
+      list-style: none;
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .trust-list li {
+      padding: 0.72rem;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .history-wrap {
+      background: var(--white);
+      border: 1px solid rgba(31, 86, 134, 0.12);
+      border-radius: var(--radius);
+      box-shadow: 0 8px 24px rgba(16, 37, 61, 0.06);
+      padding: 1.2rem;
+    }
+
+    .history-grid {
+      display: grid;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    .history-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.8rem;
+      align-items: start;
+      padding: 0.75rem;
+      border: 1px solid rgba(31, 86, 134, 0.12);
+      border-radius: 12px;
+      background: #fbfdff;
+    }
+
+    .history-year {
+      font-family: var(--font-h);
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      color: var(--blue-700);
+      background: rgba(44, 108, 163, 0.12);
+      border-radius: 8px;
+      padding: 0.2rem 0.55rem;
+      line-height: 1.2;
+    }
+
+    .history-item p {
+      color: var(--slate);
+      font-size: 0.95rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid rgba(31, 86, 134, 0.12);
+      border-radius: var(--radius);
+      padding: 1rem;
+      box-shadow: 0 8px 24px rgba(16, 37, 61, 0.06);
+    }
+
+    .contact-list {
+      list-style: none;
+      display: grid;
+      gap: 0.5rem;
+      color: var(--slate);
+    }
+
+    .contact-list a {
+      color: var(--blue-700);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 0.72rem;
+    }
+
+    label {
+      font-size: 0.82rem;
+      color: var(--blue-700);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-family: var(--font-h);
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid rgba(31, 86, 134, 0.24);
+      border-radius: 12px;
+      padding: 0.72rem;
+      font-family: var(--font-b);
+      font-size: 0.95rem;
+      color: var(--ink);
+      background: #ffffff;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: 2px solid rgba(44, 108, 163, 0.2);
+      border-color: var(--blue-600);
+    }
+
+    textarea {
+      min-height: 118px;
+      resize: vertical;
+    }
+
+    .form-btn {
+      margin-top: 0.2rem;
+      width: 100%;
+    }
+
+    footer {
+      margin-top: 2rem;
+      background: var(--blue-900);
+      color: rgba(255, 255, 255, 0.87);
+      padding: 1.4rem 0;
+      font-size: 0.9rem;
+    }
+
+    .footer-row {
+      display: flex;
+      gap: 0.8rem;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .footer-row a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .footer-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
+    .footer-brand img {
+      width: 120px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .mobile-panel {
+      display: none;
+    }
+
+    @media (max-width: 899px) {
+      .site-nav .btn-primary {
+        display: none;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .mobile-panel {
+        display: none;
+        border-top: 1px solid rgba(31, 86, 134, 0.15);
+        background: #ffffff;
+      }
+
+      .mobile-panel.open {
+        display: block;
+      }
+
+      .mobile-panel ul {
+        list-style: none;
+        padding: 0.4rem 0 0.8rem;
+      }
+
+      .mobile-panel a {
+        display: block;
+        text-decoration: none;
+        color: var(--blue-700);
+        padding: 0.7rem 0;
+        border-bottom: 1px dashed rgba(31, 86, 134, 0.15);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-family: var(--font-h);
+        font-weight: 700;
+      }
+
+      .nav-actions {
+        margin-left: auto;
+      }
+    }
+
+    @media (min-width: 900px) {
+      .menu-toggle {
+        display: none;
+      }
+
+      .hero {
+        padding: 4rem 0 2rem;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1.08fr 0.92fr;
+        gap: 1.25rem;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .history-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .brand-logo {
+        top: 0;
+        width: 96px;
+        height: 96px;
+      }
+
+      .top-cta {
+        font-size: 0.85rem;
+      }
+
+      .top-cta .container {
+        align-items: flex-start;
+      }
+
+      .hero-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .projects-carousel {
+        grid-template-columns: 1fr;
+      }
+
+      .carousel-btn {
+        width: 100%;
+        border-radius: 10px;
+      }
+
+      .section {
+        padding: 2.7rem 0;
+      }
+
+      .lang-toggle {
+        min-width: 68px;
+        padding: 0.42rem 0.52rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-cta" aria-label="Contacto rápido">
+    <div class="container">
+      <strong data-i18n="topCtaText">Precisa de assistência AVAC urgente? Ligue: 255 535 275</strong>
+      <a href="#contacto" data-i18n="topCtaButton">Orçamento imediato</a>
+    </div>
+  </div>
+
+  <header class="site-nav" id="inicio">
+    <div class="container">
+      <a class="brand" href="#inicio" aria-label="Início Grupo Madusa">
+        <img class="brand-logo" src="assets/logo.png" alt="Logótipo Grupo Madusa" data-i18n-alt="brandLogoAlt" />
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+      <ul class="nav-links" aria-label="Navegação principal">
+        <li><a href="#sobre" data-i18n="navAbout">Sobre nós</a></li>
+        <li><a href="#historia" data-i18n="navHistory">História</a></li>
+        <li><a href="#servicos" data-i18n="navServices">Serviços</a></li>
+        <li><a href="#fotos" data-i18n="navProjects">Projetos</a></li>
+        <li><a href="#contacto" data-i18n="navContact">Contacto</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="lang-toggle" id="langToggle" aria-label="Mudar idioma">
+          <span class="lang-flag" id="langFlag" aria-hidden="true"></span>
+          <span id="langLabel">PT</span>
+        </button>
+        <a class="btn btn-primary" href="#contacto" data-i18n="navQuote">Pedir orçamento</a>
+      </div>
+    </div>
+    <nav class="mobile-panel" id="mobilePanel" aria-label="Menu mobile">
+      <div class="container">
+        <ul>
+          <li><a href="#sobre" data-i18n="navAbout">Sobre nós</a></li>
+          <li><a href="#historia" data-i18n="navHistory">História</a></li>
+          <li><a href="#servicos" data-i18n="navServices">Serviços</a></li>
+          <li><a href="#fotos" data-i18n="navProjects">Projetos</a></li>
+          <li><a href="#contacto" data-i18n="navContact">Contacto</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text reveal">
+          <h1 data-i18n-html="heroTitle">Conforto térmico <span>sem complicações</span></h1>
+          <p data-i18n="heroDesc">Instalação, manutenção e assistência AVAC com resposta rápida para habitação, comércio e indústria no Norte de Portugal.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contacto" data-i18n="heroPrimaryCta">Pedir orçamento</a>
+            <a class="btn btn-outline" href="#servicos" data-i18n="heroSecondaryCta">Ver serviços</a>
+          </div>
+          <ul class="hero-stats" aria-label="Indicadores da empresa">
+            <li data-i18n="heroStat1">9+ anos de experiência</li>
+            <li data-i18n="heroStat2">Técnicos certificados</li>
+            <li data-i18n="heroStat3">Serviço completo 360 graus</li>
+          </ul>
+        </div>
+        <figure class="hero-media reveal" aria-label="Foto de equipa técnica">
+          <img src="assets/fotos/equipa-tecnica.svg" alt="Equipa técnica da Grupo Madusa durante instalação" data-i18n-alt="heroImageAlt" />
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="sobre">
+      <div class="container reveal">
+        <h2 data-i18n="aboutTitle">Sobre nós</h2>
+        <p class="section-intro" data-i18n="aboutIntro">Fundada em 2016, a Grupo Madusa (MadusaClima) opera a partir de Marco de Canaveses e entrega soluções AVAC com foco em fiabilidade, segurança e eficiência energética.</p>
+        <div class="trust">
+          <h2 data-i18n="trustTitle">Porque funciona</h2>
+          <ul class="trust-list">
+            <li data-i18n="trust1">Diagnóstico técnico no local antes da proposta.</li>
+            <li data-i18n="trust2">Execução por equipa certificada e acompanhamento pós-obra.</li>
+            <li data-i18n="trust3">Comunicação clara: prazos, custos e manutenção preventiva.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="historia">
+      <div class="container reveal">
+        <h2 data-i18n="historyTitle">A nossa história</h2>
+        <p class="section-intro" data-i18n="historyIntro">Uma trajetória construída com consistência técnica, proximidade ao cliente e melhoria contínua.</p>
+        <div class="history-wrap">
+          <div class="history-grid">
+            <article class="history-item">
+              <span class="history-year">2016</span>
+              <p data-i18n="historyItem1">Fundação do Grupo Madusa e início da atividade em climatização e assistência técnica AVAC.</p>
+            </article>
+            <article class="history-item">
+              <span class="history-year">2018</span>
+              <p data-i18n="historyItem2">Expansão para projetos de maior escala em comércio e serviços, com reforço da equipa técnica.</p>
+            </article>
+            <article class="history-item">
+              <span class="history-year">2021</span>
+              <p data-i18n="historyItem3">Consolidação de planos de manutenção preventiva para clientes residenciais e empresariais.</p>
+            </article>
+            <article class="history-item">
+              <span class="history-year">Hoje</span>
+              <p data-i18n="historyItem4">Atuação contínua no Norte de Portugal com foco em eficiência energética, rapidez e confiança.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="servicos">
+      <div class="container">
+        <h2 class="reveal" data-i18n="servicesTitle">Serviços com foco em resultado</h2>
+        <p class="section-intro reveal" data-i18n="servicesIntro">Estrutura simples e clara: o cliente percebe rapidamente o que oferecemos e como pedir orçamento.</p>
+        <div class="services-grid">
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">❄️</div>
+            <h3 data-i18n="service1Title">Ar condicionado</h3>
+            <p data-i18n="service1Desc">Instalação de sistemas split, multi-split e VRF para casas, lojas e escritórios.</p>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">🔥</div>
+            <h3 data-i18n="service2Title">Aquecimento central</h3>
+            <p data-i18n="service2Desc">Bombas de calor, caldeiras e radiadores com configuração ajustada ao espaço.</p>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">💨</div>
+            <h3 data-i18n="service3Title">Ventilação</h3>
+            <p data-i18n="service3Desc">Solução para renovação de ar em ambientes comerciais e industriais exigentes.</p>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">🛠️</div>
+            <h3 data-i18n="service4Title">Manutenção</h3>
+            <p data-i18n="service4Desc">Planos preventivos e corretivos para garantir eficiência e reduzir avarias.</p>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">🏭</div>
+            <h3 data-i18n="service5Title">Projetos AVAC</h3>
+            <p data-i18n="service5Desc">Dimensionamento técnico completo para unidades industriais e comerciais.</p>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">🛒</div>
+            <h3 data-i18n="service6Title">Equipamentos</h3>
+            <p data-i18n="service6Desc">Venda com aconselhamento técnico para escolher a solução certa sem desperdício.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="fotos">
+      <div class="container">
+        <h2 class="reveal" data-i18n="photosTitle">Fotos reais da operação</h2>
+        <p class="section-intro reveal" data-i18n="photosIntro">O carrossel abaixo lê automaticamente as imagens da pasta de projetos.</p>
+        <div class="projects-carousel reveal" id="projectsCarousel" aria-live="polite">
+          <button class="carousel-btn" id="projectPrev" type="button" aria-label="Projeto anterior">&#8249;</button>
+          <figure class="projects-frame">
+            <img id="projectImage" src="assets/fotos/instalacao-cliente.svg" alt="Foto de projeto" />
+            <figcaption id="projectCaption">Projeto 1 / 1</figcaption>
+          </figure>
+          <button class="carousel-btn" id="projectNext" type="button" aria-label="Projeto seguinte">&#8250;</button>
+        </div>
+        <p class="projects-help" data-i18n="projectsHelp">Para adicionar novas imagens, coloque ficheiros em assets/projetos com nomes sequenciais (1.jpg, 2.jpg, 3.png...).</p>
+      </div>
+    </section>
+
+    <section class="section" id="contacto">
+      <div class="container">
+        <h2 class="reveal" data-i18n="contactTitle">Contacto e orçamento</h2>
+        <div class="contact-grid">
+          <aside class="card reveal" aria-label="Dados de contacto">
+            <ul class="contact-list">
+              <li data-i18n-html="contactAddress"><strong>Morada:</strong> Avenida Manuel Pereira Soares 603 r/c-D, 4630-296 Marco de Canaveses</li>
+              <li data-i18n-html="contactPhone"><strong>Telefone:</strong> <a href="tel:255535275">255 535 275</a></li>
+              <li data-i18n-html="contactEmail"><strong>Email:</strong> <a href="mailto:madusaclima@hotmail.com">madusaclima@hotmail.com</a></li>
+              <li data-i18n="contactHours">Horário: Segunda a Sexta, 08:00-18:00</li>
+            </ul>
+          </aside>
+
+          <form class="card form-grid reveal" id="orcamentoForm" aria-label="Formulário de orçamento">
+            <div>
+              <label for="nome" data-i18n="labelName">Nome</label>
+              <input id="nome" name="nome" type="text" placeholder="O seu nome" data-i18n-placeholder="placeholderName" required />
+            </div>
+            <div>
+              <label for="telemovel" data-i18n="labelPhone">Telemóvel</label>
+              <input id="telemovel" name="telemovel" type="tel" placeholder="+351 9XX XXX XXX" data-i18n-placeholder="placeholderPhone" required />
+            </div>
+            <div>
+              <label for="email" data-i18n="labelEmail">Email</label>
+              <input id="email" name="email" type="email" placeholder="email@exemplo.com" data-i18n-placeholder="placeholderEmail" />
+            </div>
+            <div>
+              <label for="servico" data-i18n="labelService">Tipo de serviço</label>
+              <select id="servico" name="servico">
+                <option value="" data-i18n="optSelect">Selecione</option>
+                <option data-i18n="optService1">Ar condicionado</option>
+                <option data-i18n="optService2">Aquecimento central</option>
+                <option data-i18n="optService3">Ventilação</option>
+                <option data-i18n="optService4">Manutenção</option>
+                <option data-i18n="optService5">Projetos AVAC</option>
+              </select>
+            </div>
+            <div>
+              <label for="mensagem" data-i18n="labelMessage">Mensagem</label>
+              <textarea id="mensagem" name="mensagem" placeholder="Descreva o espaço e a necessidade" data-i18n-placeholder="placeholderMessage"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary form-btn" id="submitBtn" data-i18n="sendRequest">Enviar pedido</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="Logótipo Grupo Madusa" data-i18n-alt="brandLogoAlt" />
+        <p data-i18n="footerCopy">Grupo Madusa | NIF 513 887 172</p>
+      </div>
+      <p>
+        <a href="https://www.linkedin.com/company/madusaclima/" target="_blank" rel="noopener">LinkedIn</a>
+        |
+        <a href="https://www.facebook.com/profile.php?id=61576842067718" target="_blank" rel="noopener">Facebook</a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    const translations = {
+      pt: {
+        pageTitle: 'Grupo Madusa | Climatização AVAC em Marco de Canaveses',
+        pageDescription: 'Grupo Madusa: instalação, manutenção e assistência técnica AVAC para habitação, comércio e indústria no Norte.',
+        topCtaText: 'Precisa de assistência AVAC urgente? Ligue: 255 535 275',
+        topCtaButton: 'Orçamento imediato',
+        navAbout: 'Sobre nós',
+        navHistory: 'História',
+        navServices: 'Serviços',
+        navProjects: 'Projetos',
+        navContact: 'Contacto',
+        navQuote: 'Pedir orçamento',
+        heroTitle: 'Conforto térmico <span>sem complicações</span>',
+        heroDesc: 'Instalação, manutenção e assistência AVAC com resposta rápida para habitação, comércio e indústria no Norte de Portugal.',
+        heroPrimaryCta: 'Pedir orçamento',
+        heroSecondaryCta: 'Ver serviços',
+        heroStat1: '9+ anos de experiência',
+        heroStat2: 'Técnicos certificados',
+        heroStat3: 'Serviço completo 360 graus',
+        heroImageAlt: 'Equipa técnica da Grupo Madusa durante instalação',
+        brandLogoAlt: 'Logótipo Grupo Madusa',
+        aboutTitle: 'Sobre nós',
+        aboutIntro: 'Fundada em 2016, a Grupo Madusa (MadusaClima) opera a partir de Marco de Canaveses e entrega soluções AVAC com foco em fiabilidade, segurança e eficiência energética.',
+        trustTitle: 'Porque funciona',
+        trust1: 'Diagnóstico técnico no local antes da proposta.',
+        trust2: 'Execução por equipa certificada e acompanhamento pós-obra.',
+        trust3: 'Comunicação clara: prazos, custos e manutenção preventiva.',
+        historyTitle: 'A nossa história',
+        historyIntro: 'Uma trajetória construída com consistência técnica, proximidade ao cliente e melhoria contínua.',
+        historyItem1: 'Fundação do Grupo Madusa e início da atividade em climatização e assistência técnica AVAC.',
+        historyItem2: 'Expansão para projetos de maior escala em comércio e serviços, com reforço da equipa técnica.',
+        historyItem3: 'Consolidação de planos de manutenção preventiva para clientes residenciais e empresariais.',
+        historyItem4: 'Atuação contínua no Norte de Portugal com foco em eficiência energética, rapidez e confiança.',
+        servicesTitle: 'Serviços com foco em resultado',
+        servicesIntro: 'Estrutura simples e clara: o cliente percebe rapidamente o que oferecemos e como pedir orçamento.',
+        service1Title: 'Ar condicionado',
+        service1Desc: 'Instalação de sistemas split, multi-split e VRF para casas, lojas e escritórios.',
+        service2Title: 'Aquecimento central',
+        service2Desc: 'Bombas de calor, caldeiras e radiadores com configuração ajustada ao espaço.',
+        service3Title: 'Ventilação',
+        service3Desc: 'Solução para renovação de ar em ambientes comerciais e industriais exigentes.',
+        service4Title: 'Manutenção',
+        service4Desc: 'Planos preventivos e corretivos para garantir eficiência e reduzir avarias.',
+        service5Title: 'Projetos AVAC',
+        service5Desc: 'Dimensionamento técnico completo para unidades industriais e comerciais.',
+        service6Title: 'Equipamentos',
+        service6Desc: 'Venda com aconselhamento técnico para escolher a solução certa sem desperdício.',
+        photosTitle: 'Fotos reais da operação',
+        photosIntro: 'O carrossel abaixo lê automaticamente as imagens da pasta de projetos.',
+        projectsHelp: 'Para adicionar novas imagens, coloque ficheiros em assets/projetos com nomes sequenciais (1.jpg, 2.jpg, 3.png...).',
+        projectCounterLabel: 'Projeto',
+        carouselPrev: 'Projeto anterior',
+        carouselNext: 'Projeto seguinte',
+        photo1Alt: 'Placeholder de foto real de instalação em cliente',
+        photo1Caption: 'Instalação residencial - substituir por foto real da obra.',
+        photo2Alt: 'Placeholder de foto real de manutenção',
+        photo2Caption: 'Manutenção preventiva - substituir por foto da equipa em campo.',
+        photo3Alt: 'Placeholder de foto real de projeto industrial',
+        photo3Caption: 'Projeto industrial - substituir por foto do sistema instalado.',
+        contactTitle: 'Contacto e orçamento',
+        contactAddress: '<strong>Morada:</strong> Avenida Manuel Pereira Soares 603 r/c-D, 4630-296 Marco de Canaveses',
+        contactPhone: '<strong>Telefone:</strong> <a href="tel:255535275">255 535 275</a>',
+        contactEmail: '<strong>Email:</strong> <a href="mailto:madusaclima@hotmail.com">madusaclima@hotmail.com</a>',
+        contactHours: 'Horário: Segunda a Sexta, 08:00-18:00',
+        labelName: 'Nome',
+        placeholderName: 'O seu nome',
+        labelPhone: 'Telemóvel',
+        placeholderPhone: '+351 9XX XXX XXX',
+        labelEmail: 'Email',
+        placeholderEmail: 'email@exemplo.com',
+        labelService: 'Tipo de serviço',
+        optSelect: 'Selecione',
+        optService1: 'Ar condicionado',
+        optService2: 'Aquecimento central',
+        optService3: 'Ventilação',
+        optService4: 'Manutenção',
+        optService5: 'Projetos AVAC',
+        labelMessage: 'Mensagem',
+        placeholderMessage: 'Descreva o espaço e a necessidade',
+        sendRequest: 'Enviar pedido',
+        sentRequest: 'Pedido enviado',
+        footerCopy: 'Grupo Madusa | NIF 513 887 172',
+        menuOpen: 'Abrir menu',
+        menuClose: 'Fechar menu'
+      },
+      en: {
+        pageTitle: 'Grupo Madusa | HVAC Solutions in Marco de Canaveses',
+        pageDescription: 'Grupo Madusa: HVAC installation, maintenance, and technical support for residential, commercial, and industrial spaces in Northern Portugal.',
+        topCtaText: 'Need urgent HVAC support? Call: 255 535 275',
+        topCtaButton: 'Instant quote',
+        navAbout: 'About us',
+        navHistory: 'History',
+        navServices: 'Services',
+        navProjects: 'Projects',
+        navContact: 'Contact',
+        navQuote: 'Request quote',
+        heroTitle: 'Thermal comfort <span>made simple</span>',
+        heroDesc: 'HVAC installation, maintenance, and support with fast response for homes, businesses, and industry in Northern Portugal.',
+        heroPrimaryCta: 'Request quote',
+        heroSecondaryCta: 'View services',
+        heroStat1: '9+ years of experience',
+        heroStat2: 'Certified technicians',
+        heroStat3: '360 degree complete service',
+        heroImageAlt: 'Grupo Madusa technical team during installation',
+        brandLogoAlt: 'Grupo Madusa logo',
+        aboutTitle: 'About us',
+        aboutIntro: 'Founded in 2016, Grupo Madusa (MadusaClima) operates from Marco de Canaveses and delivers HVAC solutions focused on reliability, safety, and energy efficiency.',
+        trustTitle: 'Why it works',
+        trust1: 'On-site technical diagnosis before every proposal.',
+        trust2: 'Execution by certified teams and post-installation follow-up.',
+        trust3: 'Clear communication on schedule, cost, and preventive maintenance.',
+        historyTitle: 'Our story',
+        historyIntro: 'A journey built on technical consistency, close client support, and continuous improvement.',
+        historyItem1: 'Grupo Madusa is founded and starts operations in HVAC installation and technical support.',
+        historyItem2: 'Expansion to larger projects in commerce and services, with a stronger technical team.',
+        historyItem3: 'Consolidation of preventive maintenance plans for residential and business clients.',
+        historyItem4: 'Continuous activity in Northern Portugal focused on energy efficiency, speed, and trust.',
+        servicesTitle: 'Services focused on results',
+        servicesIntro: 'Simple and clear structure: clients quickly understand what we do and how to request a quote.',
+        service1Title: 'Air conditioning',
+        service1Desc: 'Installation of split, multi-split, and VRF systems for homes, shops, and offices.',
+        service2Title: 'Central heating',
+        service2Desc: 'Heat pumps, boilers, and radiators configured for each space.',
+        service3Title: 'Ventilation',
+        service3Desc: 'Air renewal solutions for demanding commercial and industrial environments.',
+        service4Title: 'Maintenance',
+        service4Desc: 'Preventive and corrective plans to ensure performance and reduce breakdowns.',
+        service5Title: 'HVAC projects',
+        service5Desc: 'Full technical design for industrial and commercial facilities.',
+        service6Title: 'Equipment',
+        service6Desc: 'Sales with technical guidance to choose the right solution without waste.',
+        photosTitle: 'Real operation photos',
+        photosIntro: 'The carousel below automatically loads images from the projects folder.',
+        projectsHelp: 'To add new images, place files in assets/projetos with sequential names (1.jpg, 2.jpg, 3.png...).',
+        projectCounterLabel: 'Project',
+        carouselPrev: 'Previous project',
+        carouselNext: 'Next project',
+        photo1Alt: 'Placeholder for real residential installation photo',
+        photo1Caption: 'Residential installation - replace with a real on-site photo.',
+        photo2Alt: 'Placeholder for real maintenance photo',
+        photo2Caption: 'Preventive maintenance - replace with a real field team photo.',
+        photo3Alt: 'Placeholder for real industrial project photo',
+        photo3Caption: 'Industrial project - replace with a real installed system photo.',
+        contactTitle: 'Contact and quote',
+        contactAddress: '<strong>Address:</strong> Avenida Manuel Pereira Soares 603 r/c-D, 4630-296 Marco de Canaveses',
+        contactPhone: '<strong>Phone:</strong> <a href="tel:255535275">255 535 275</a>',
+        contactEmail: '<strong>Email:</strong> <a href="mailto:madusaclima@hotmail.com">madusaclima@hotmail.com</a>',
+        contactHours: 'Hours: Monday to Friday, 08:00-18:00',
+        labelName: 'Name',
+        placeholderName: 'Your name',
+        labelPhone: 'Phone',
+        placeholderPhone: '+351 9XX XXX XXX',
+        labelEmail: 'Email',
+        placeholderEmail: 'email@example.com',
+        labelService: 'Service type',
+        optSelect: 'Select',
+        optService1: 'Air conditioning',
+        optService2: 'Central heating',
+        optService3: 'Ventilation',
+        optService4: 'Maintenance',
+        optService5: 'HVAC projects',
+        labelMessage: 'Message',
+        placeholderMessage: 'Describe your space and needs',
+        sendRequest: 'Send request',
+        sentRequest: 'Request sent',
+        footerCopy: 'Grupo Madusa | Tax ID 513 887 172',
+        menuOpen: 'Open menu',
+        menuClose: 'Close menu'
+      }
+    };
+
+    function getFlagMarkup(lang) {
+      if (lang === 'pt') {
+        return '<svg viewBox="0 0 18 13" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true"><rect width="7" height="13" fill="#0b8a3a"/><rect x="7" width="11" height="13" fill="#d64040"/><circle cx="7" cy="6.5" r="2.3" fill="#ffda57"/></svg>';
+      }
+      return '<svg viewBox="0 0 18 13" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true"><rect width="18" height="13" fill="#1f4f99"/><path d="M0 0L18 13M18 0L0 13" stroke="#fff" stroke-width="2"/><path d="M0 0L18 13M18 0L0 13" stroke="#d71920" stroke-width="1"/><path d="M9 0V13M0 6.5H18" stroke="#fff" stroke-width="3"/><path d="M9 0V13M0 6.5H18" stroke="#d71920" stroke-width="1.6"/></svg>';
+    }
+
+    const menuToggle = document.getElementById('menuToggle');
+    const mobilePanel = document.getElementById('mobilePanel');
+    const langToggle = document.getElementById('langToggle');
+    const langFlag = document.getElementById('langFlag');
+    const langLabel = document.getElementById('langLabel');
+    const projectImage = document.getElementById('projectImage');
+    const projectCaption = document.getElementById('projectCaption');
+    const projectPrev = document.getElementById('projectPrev');
+    const projectNext = document.getElementById('projectNext');
+    const submitBtn = document.getElementById('submitBtn');
+    const form = document.getElementById('orcamentoForm');
+    const metaDescription = document.querySelector('meta[name="description"]');
+    let currentLang = localStorage.getItem('madusa-lang') || 'pt';
+    let projectImages = [];
+    let currentProjectIndex = 0;
+    let projectAutoTimer = null;
+
+    const projectFolder = 'assets/projetos';
+    const projectExtensions = ['jpg', 'jpeg', 'png', 'webp', 'gif', 'svg'];
+    const fallbackProjectImages = [
+      'assets/fotos/instalacao-cliente.svg',
+      'assets/fotos/manutencao-tecnica.svg',
+      'assets/fotos/projeto-industrial.svg'
+    ];
+
+    function imageExists(url) {
+      return new Promise(function (resolve) {
+        const img = new Image();
+        img.onload = function () { resolve(true); };
+        img.onerror = function () { resolve(false); };
+        img.src = url;
+      });
+    }
+
+    async function loadProjectImages() {
+      const found = [];
+      let misses = 0;
+      const maxItems = 250;
+      const missLimit = 14;
+
+      for (let i = 1; i <= maxItems && misses < missLimit; i += 1) {
+        let matched = null;
+
+        for (const ext of projectExtensions) {
+          const candidate = projectFolder + '/' + i + '.' + ext;
+          if (await imageExists(candidate)) {
+            matched = candidate;
+            break;
+          }
+        }
+
+        if (matched) {
+          found.push(matched);
+          misses = 0;
+        } else {
+          misses += 1;
+        }
+      }
+
+      projectImages = found.length ? found : fallbackProjectImages;
+      currentProjectIndex = 0;
+      updateProjectSlide();
+      restartProjectAutoplay();
+    }
+
+    function updateProjectSlide() {
+      if (!projectImages.length) {
+        return;
+      }
+
+      const dict = translations[currentLang] || translations.pt;
+      const currentSrc = projectImages[currentProjectIndex];
+      projectImage.src = currentSrc;
+      projectImage.alt = dict.photosTitle + ' ' + (currentProjectIndex + 1);
+      projectCaption.textContent = dict.projectCounterLabel + ' ' + (currentProjectIndex + 1) + ' / ' + projectImages.length;
+
+      const hasMultiple = projectImages.length > 1;
+      projectPrev.disabled = !hasMultiple;
+      projectNext.disabled = !hasMultiple;
+    }
+
+    function restartProjectAutoplay() {
+      clearInterval(projectAutoTimer);
+      if (projectImages.length <= 1) {
+        return;
+      }
+
+      projectAutoTimer = setInterval(function () {
+        currentProjectIndex = (currentProjectIndex + 1) % projectImages.length;
+        updateProjectSlide();
+      }, 5200);
+    }
+
+    function applyTranslations(lang) {
+      const dict = translations[lang] || translations.pt;
+      const targetLang = lang === 'pt' ? 'en' : 'pt';
+      document.documentElement.lang = lang;
+      document.title = dict.pageTitle;
+      metaDescription.setAttribute('content', dict.pageDescription);
+
+      document.querySelectorAll('[data-i18n]').forEach(function (el) {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) el.textContent = dict[key];
+      });
+
+      document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
+        const key = el.getAttribute('data-i18n-html');
+        if (dict[key]) el.innerHTML = dict[key];
+      });
+
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(function (el) {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (dict[key]) el.setAttribute('placeholder', dict[key]);
+      });
+
+      document.querySelectorAll('[data-i18n-alt]').forEach(function (el) {
+        const key = el.getAttribute('data-i18n-alt');
+        if (dict[key]) el.setAttribute('alt', dict[key]);
+      });
+
+      langFlag.innerHTML = getFlagMarkup(targetLang);
+      langLabel.textContent = targetLang.toUpperCase();
+      menuToggle.setAttribute('aria-label', mobilePanel.classList.contains('open') ? dict.menuClose : dict.menuOpen);
+      form.setAttribute('aria-label', lang === 'pt' ? 'Formulário de orçamento' : 'Quote form');
+      projectPrev.setAttribute('aria-label', dict.carouselPrev);
+      projectNext.setAttribute('aria-label', dict.carouselNext);
+
+      if (projectImages.length) {
+        updateProjectSlide();
+      }
+    }
+
+    menuToggle.addEventListener('click', function () {
+      const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', String(!expanded));
+      mobilePanel.classList.toggle('open');
+      menuToggle.textContent = expanded ? '☰' : '✕';
+      menuToggle.setAttribute('aria-label', expanded ? translations[currentLang].menuOpen : translations[currentLang].menuClose);
+    });
+
+    mobilePanel.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        mobilePanel.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.textContent = '☰';
+        menuToggle.setAttribute('aria-label', translations[currentLang].menuOpen);
+      });
+    });
+
+    langToggle.addEventListener('click', function () {
+      currentLang = currentLang === 'pt' ? 'en' : 'pt';
+      localStorage.setItem('madusa-lang', currentLang);
+      applyTranslations(currentLang);
+    });
+
+    projectPrev.addEventListener('click', function () {
+      if (!projectImages.length) {
+        return;
+      }
+
+      currentProjectIndex = (currentProjectIndex - 1 + projectImages.length) % projectImages.length;
+      updateProjectSlide();
+      restartProjectAutoplay();
+    });
+
+    projectNext.addEventListener('click', function () {
+      if (!projectImages.length) {
+        return;
+      }
+
+      currentProjectIndex = (currentProjectIndex + 1) % projectImages.length;
+      updateProjectSlide();
+      restartProjectAutoplay();
+    });
+
+    // Reveal simples para dar ritmo visual sem carregar bibliotecas.
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(function (item, index) {
+      item.style.transitionDelay = String(index * 45) + 'ms';
+      observer.observe(item);
+    });
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      submitBtn.textContent = translations[currentLang].sentRequest;
+      submitBtn.style.background = '#1d8f4f';
+      submitBtn.disabled = true;
+    });
+
+    applyTranslations(currentLang);
+    menuToggle.textContent = '☰';
+    loadProjectImages();
+  </script>
+</body>
+</html>
