@@ -24,6 +24,7 @@
       --shadow: 0 14px 34px rgba(16, 37, 61, 0.1);
       --font-h: 'Barlow Condensed', sans-serif;
       --font-b: 'Barlow', sans-serif;
+      --anchor-offset: 150px;
     }
 
     * {
@@ -337,6 +338,7 @@
 
     .section {
       padding: 3.4rem 0;
+      scroll-margin-top: var(--anchor-offset);
     }
 
     .section h2 {
@@ -680,6 +682,10 @@
     }
 
     @media (max-width: 899px) {
+      .site-nav .container {
+        flex-wrap: wrap;
+      }
+
       .site-nav .btn-primary {
         display: none;
       }
@@ -696,6 +702,19 @@
 
       .mobile-panel.open {
         display: block;
+      }
+
+      .brand {
+        order: 1;
+      }
+
+      .nav-actions {
+        order: 2;
+        margin-left: auto;
+      }
+
+      .menu-toggle {
+        order: 3;
       }
 
       .mobile-panel ul {
@@ -753,6 +772,10 @@
     }
 
     @media (max-width: 560px) {
+      :root {
+        --anchor-offset: 170px;
+      }
+
       .brand-logo {
         top: 0;
         width: 96px;
@@ -850,7 +873,7 @@
           </ul>
         </div>
         <figure class="hero-media reveal" aria-label="Foto de equipa técnica">
-          <img src="assets/fotos/equipa-tecnica.svg" alt="Equipa técnica da Grupo Madusa durante instalação" data-i18n-alt="heroImageAlt" />
+          <img src="assets/fotos/equipa-tecnica.jpg" alt="Equipa técnica da Grupo Madusa durante instalação" data-i18n-alt="heroImageAlt" onerror="this.onerror=null;this.src='assets/fotos/equipa-tecnica.svg';" />
         </figure>
       </div>
     </section>
@@ -877,7 +900,7 @@
         <div class="history-wrap">
           <div class="history-founder">
             <figure>
-              <img src="assets/fotos/fundador-placeholder.svg" alt="Placeholder da fotografia do fundador da empresa" data-i18n-alt="founderPhotoAlt" />
+              <img src="assets/fotos/fundador-placeholder.jpg" alt="Placeholder da fotografia do fundador da empresa" data-i18n-alt="founderPhotoAlt" onerror="this.onerror=null;this.src='assets/fotos/fundador-placeholder.svg';" />
               <figcaption data-i18n="founderCaption">Espaço reservado para a fotografia do fundador da empresa.</figcaption>
             </figure>
             <div>
@@ -953,12 +976,12 @@
         <div class="projects-carousel reveal" id="projectsCarousel" aria-live="polite">
           <button class="carousel-btn" id="projectPrev" type="button" aria-label="Projeto anterior">&#8249;</button>
           <figure class="projects-frame">
-            <img id="projectImage" src="assets/fotos/instalacao-cliente.svg" alt="Foto de projeto" />
+            <img id="projectImage" src="assets/fotos/instalacao-cliente.jpg" alt="Foto de projeto" onerror="this.onerror=null;this.src='assets/fotos/instalacao-cliente.svg';" />
             <figcaption id="projectCaption">Projeto 1 / 1</figcaption>
           </figure>
           <button class="carousel-btn" id="projectNext" type="button" aria-label="Projeto seguinte">&#8250;</button>
         </div>
-        <p class="projects-help" data-i18n="projectsHelp">Para adicionar novas imagens, coloque ficheiros em assets/projetos com nomes sequenciais (1.jpg, 2.jpg, 3.png...).</p>
+        <p class="projects-help" data-i18n="projectsHelp">Para adicionar novas imagens, coloque ficheiros em assets/projetos com o mesmo nome base e extensão .jpg (por exemplo: 1.jpg, 2.jpg, 3.jpg).</p>
       </div>
     </section>
 
@@ -1078,7 +1101,7 @@
         service6Desc: 'Venda com aconselhamento técnico para escolher a solução certa sem desperdício.',
         photosTitle: 'Fotos reais da operação',
         photosIntro: 'O carrossel abaixo lê automaticamente as imagens da pasta de projetos.',
-        projectsHelp: 'Para adicionar novas imagens, coloque ficheiros em assets/projetos com nomes sequenciais (1.jpg, 2.jpg, 3.png...).',
+        projectsHelp: 'Para adicionar novas imagens, coloque ficheiros em assets/projetos com o mesmo nome base e extensão .jpg (por exemplo: 1.jpg, 2.jpg, 3.jpg).',
         projectCounterLabel: 'Projeto',
         carouselPrev: 'Projeto anterior',
         carouselNext: 'Projeto seguinte',
@@ -1166,7 +1189,7 @@
         service6Desc: 'Sales with technical guidance to choose the right solution without waste.',
         photosTitle: 'Real operation photos',
         photosIntro: 'The carousel below automatically loads images from the projects folder.',
-        projectsHelp: 'To add new images, place files in assets/projetos with sequential names (1.jpg, 2.jpg, 3.png...).',
+        projectsHelp: 'To add new images, place files in assets/projetos using the same base name and a .jpg extension (for example: 1.jpg, 2.jpg, 3.jpg).',
         projectCounterLabel: 'Project',
         carouselPrev: 'Previous project',
         carouselNext: 'Next project',

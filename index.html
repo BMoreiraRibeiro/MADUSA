@@ -24,6 +24,7 @@
       --shadow: 0 14px 34px rgba(16, 37, 61, 0.1);
       --font-h: 'Barlow Condensed', sans-serif;
       --font-b: 'Barlow', sans-serif;
+      --anchor-offset: 150px;
     }
 
     * {
@@ -337,6 +338,7 @@
 
     .section {
       padding: 3.4rem 0;
+      scroll-margin-top: var(--anchor-offset);
     }
 
     .section h2 {
@@ -770,6 +772,10 @@
     }
 
     @media (max-width: 560px) {
+      :root {
+        --anchor-offset: 170px;
+      }
+
       .brand-logo {
         top: 0;
         width: 96px;
