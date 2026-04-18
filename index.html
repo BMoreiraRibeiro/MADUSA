@@ -24,7 +24,7 @@
       --shadow: 0 14px 34px rgba(16, 37, 61, 0.1);
       --font-h: 'Barlow Condensed', sans-serif;
       --font-b: 'Barlow', sans-serif;
-      --anchor-offset: 110px;
+      --anchor-offset: 16px;
     }
 
     * {
@@ -773,7 +773,7 @@
 
     @media (max-width: 560px) {
       :root {
-        --anchor-offset: 120px;
+        --anchor-offset: 16px;
       }
 
       .brand-logo {
@@ -1236,6 +1236,8 @@
 
     const menuToggle = document.getElementById('menuToggle');
     const mobilePanel = document.getElementById('mobilePanel');
+    const siteNav = document.querySelector('.site-nav');
+    const brandLogo = document.querySelector('.brand-logo');
     const langToggle = document.getElementById('langToggle');
     const langFlag = document.getElementById('langFlag');
     const langLabel = document.getElementById('langLabel');
@@ -1366,6 +1368,60 @@
       }
     }
 
+    function scrollToAnchorTarget(hash) {
+      if (!hash || hash === '#') {
+        return;
+      }
+
+      let target;
+      try {
+        target = document.querySelector(hash);
+      } catch (error) {
+        return;
+      }
+
+      if (!target) {
+        return;
+      }
+
+      const textAnchor = target.querySelector('h1, h2, h3') || target;
+      const navBottom = siteNav ? siteNav.getBoundingClientRect().bottom : 0;
+      const logoBottom = brandLogo ? brandLogo.getBoundingClientRect().bottom : 0;
+      const overlayBottom = Math.max(navBottom, logoBottom);
+      const visualGap = 8;
+      const targetTop = textAnchor.getBoundingClientRect().top + window.scrollY;
+      const scrollTop = Math.max(0, targetTop - overlayBottom - visualGap);
+
+      window.scrollTo({
+        top: scrollTop,
+        behavior: 'smooth'
+      });
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+      anchor.addEventListener('click', function (event) {
+        const hash = anchor.getAttribute('href');
+        if (!hash || hash === '#') {
+          return;
+        }
+
+        let exists = false;
+        try {
+          exists = Boolean(document.querySelector(hash));
+        } catch (error) {
+          exists = false;
+        }
+
+        if (!exists) {
+          return;
+        }
+
+        event.preventDefault();
+        scrollToAnchorTarget(hash);
+        history.replaceState(null, '', hash);
+      });
+    });
+
     menuToggle.addEventListener('click', function () {
       const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
       menuToggle.setAttribute('aria-expanded', String(!expanded));
@@ -1434,6 +1490,10 @@
     applyTranslations(currentLang);
     menuToggle.textContent = '☰';
     loadProjectImages();
+
+    if (window.location.hash) {
+      scrollToAnchorTarget(window.location.hash);
+    }
   </script>
 </body>
 </html>
