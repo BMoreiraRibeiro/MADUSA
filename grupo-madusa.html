@@ -24,7 +24,7 @@
       --shadow: 0 14px 34px rgba(16, 37, 61, 0.1);
       --font-h: 'Barlow Condensed', sans-serif;
       --font-b: 'Barlow', sans-serif;
-      --anchor-offset: 16px;
+      --anchor-offset: 152px;
     }
 
     * {
@@ -773,7 +773,7 @@
 
     @media (max-width: 560px) {
       :root {
-        --anchor-offset: 28px;
+        --anchor-offset: 116px;
       }
 
       .brand-logo {
@@ -1385,12 +1385,11 @@
       }
 
       const textAnchor = target.querySelector('h1, h2, h3') || target;
-      const navBottom = siteNav ? siteNav.getBoundingClientRect().bottom : 0;
-      const logoBottom = brandLogo ? brandLogo.getBoundingClientRect().bottom : 0;
-      const overlayBottom = Math.max(navBottom, logoBottom);
-      const visualGap = 8;
+      const cssOffset = Number.parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--anchor-offset')) || 0;
+      const logoHeight = brandLogo ? (brandLogo.getBoundingClientRect().height || brandLogo.offsetHeight || 0) : 0;
+      const anchorOffset = Math.max(cssOffset, logoHeight + 20);
       const targetTop = textAnchor.getBoundingClientRect().top + window.scrollY;
-      const scrollTop = Math.max(0, targetTop - overlayBottom - visualGap);
+      const scrollTop = Math.max(0, targetTop - anchorOffset);
 
       window.scrollTo({
         top: scrollTop,
