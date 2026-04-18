@@ -494,6 +494,38 @@
       padding: 1.2rem;
     }
 
+    .history-founder {
+      display: grid;
+      gap: 0.9rem;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(31, 86, 134, 0.12);
+    }
+
+    .history-founder figure {
+      background: #fbfdff;
+      border: 1px solid rgba(31, 86, 134, 0.12);
+      border-radius: 16px;
+      padding: 0.65rem;
+      box-shadow: 0 8px 20px rgba(16, 37, 61, 0.05);
+    }
+
+    .history-founder img {
+      width: 100%;
+      display: block;
+      border-radius: 12px;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      background: linear-gradient(135deg, #d8e8f4, #f0f7fd);
+    }
+
+    .history-founder figcaption {
+      margin-top: 0.55rem;
+      color: var(--slate);
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
     .history-grid {
       display: grid;
       gap: 0.8rem;
@@ -713,6 +745,11 @@
       .history-grid {
         grid-template-columns: 1fr 1fr;
       }
+
+      .history-founder {
+        grid-template-columns: 0.95fr 1.05fr;
+        align-items: center;
+      }
     }
 
     @media (max-width: 560px) {
@@ -838,6 +875,16 @@
         <h2 data-i18n="historyTitle">A nossa história</h2>
         <p class="section-intro" data-i18n="historyIntro">Uma trajetória construída com consistência técnica, proximidade ao cliente e melhoria contínua.</p>
         <div class="history-wrap">
+          <div class="history-founder">
+            <figure>
+              <img src="assets/fotos/fundador-placeholder.svg" alt="Placeholder da fotografia do fundador da empresa" data-i18n-alt="founderPhotoAlt" />
+              <figcaption data-i18n="founderCaption">Espaço reservado para a fotografia do fundador da empresa.</figcaption>
+            </figure>
+            <div>
+              <h3 data-i18n="founderTitle">Fundador da empresa</h3>
+              <p data-i18n="founderText">Espaço reservado para a fotografia do fundador ou da equipa de direção, para humanizar a história da empresa.</p>
+            </div>
+          </div>
           <div class="history-grid">
             <article class="history-item">
               <span class="history-year">2016</span>
@@ -980,8 +1027,8 @@
   <script>
     const translations = {
       pt: {
-        pageTitle: 'Grupo Madusa | Climatização AVAC em Marco de Canaveses',
-        pageDescription: 'Grupo Madusa: instalação, manutenção e assistência técnica AVAC para habitação, comércio e indústria no Norte.',
+        pageTitle: 'Grupo Madusa | Climatização AVAC',
+        pageDescription: 'Grupo Madusa: instalação, manutenção e assistência técnica AVAC para habitação, comércio e indústria.',
         topCtaText: 'Precisa de assistência AVAC urgente? Ligue: 255 535 275',
         topCtaButton: 'Orçamento imediato',
         navAbout: 'Sobre nós',
@@ -991,7 +1038,7 @@
         navContact: 'Contacto',
         navQuote: 'Pedir orçamento',
         heroTitle: 'Conforto térmico <span>sem complicações</span>',
-        heroDesc: 'Instalação, manutenção e assistência AVAC com resposta rápida para habitação, comércio e indústria no Norte de Portugal.',
+        heroDesc: 'Instalação, manutenção e assistência AVAC com resposta rápida para habitação, comércio e indústria.',
         heroPrimaryCta: 'Pedir orçamento',
         heroSecondaryCta: 'Ver serviços',
         heroStat1: '9+ anos de experiência',
@@ -1007,6 +1054,10 @@
         trust3: 'Comunicação clara: prazos, custos e manutenção preventiva.',
         historyTitle: 'A nossa história',
         historyIntro: 'Uma trajetória construída com consistência técnica, proximidade ao cliente e melhoria contínua.',
+        founderTitle: 'Fundador da empresa',
+        founderText: 'Espaço reservado para a fotografia do fundador ou da equipa de direção, para humanizar a história da empresa.',
+        founderCaption: 'Espaço reservado para a fotografia do fundador da empresa.',
+        founderPhotoAlt: 'Placeholder da fotografia do fundador da empresa',
         historyItem1: 'Fundação do Grupo Madusa e início da atividade em climatização e assistência técnica AVAC.',
         historyItem2: 'Expansão para projetos de maior escala em comércio e serviços, com reforço da equipa técnica.',
         historyItem3: 'Consolidação de planos de manutenção preventiva para clientes residenciais e empresariais.',
@@ -1091,6 +1142,10 @@
         trust3: 'Clear communication on schedule, cost, and preventive maintenance.',
         historyTitle: 'Our story',
         historyIntro: 'A journey built on technical consistency, close client support, and continuous improvement.',
+        founderTitle: 'Company founder',
+        founderText: 'Reserved space for the founder or leadership team photo to humanize the company story.',
+        founderCaption: 'Reserved space for the company founder photo.',
+        founderPhotoAlt: 'Founder photo placeholder',
         historyItem1: 'Grupo Madusa is founded and starts operations in HVAC installation and technical support.',
         historyItem2: 'Expansion to larger projects in commerce and services, with a stronger technical team.',
         historyItem3: 'Consolidation of preventive maintenance plans for residential and business clients.',

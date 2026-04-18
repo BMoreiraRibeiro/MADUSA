@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Placeholder do fundador</title>
+  <desc id="desc">Imagem de exemplo para o fundador da empresa.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e8f2fb"/>
+      <stop offset="100%" stop-color="#f8fbfd"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect x="84" y="84" width="1032" height="732" rx="36" fill="#ffffff" stroke="#1f5686" stroke-opacity="0.18" stroke-width="6"/>
+  <circle cx="600" cy="330" r="160" fill="#c7d9e9"/>
+  <path d="M442 650c32-110 110-156 158-156s126 46 158 156" fill="#2c6ca3" fill-opacity="0.2"/>
+  <path d="M500 324c28-54 72-84 100-84s72 30 100 84" fill="#f08a24" fill-opacity="0.85"/>
+  <circle cx="548" cy="318" r="14" fill="#123860"/>
+  <circle cx="652" cy="318" r="14" fill="#123860"/>
+  <path d="M552 392c20 22 76 22 96 0" stroke="#123860" stroke-width="10" stroke-linecap="round" fill="none"/>
+  <rect x="294" y="700" width="612" height="46" rx="23" fill="#123860" fill-opacity="0.9"/>
+  <text x="600" y="725" text-anchor="middle" font-family="Barlow, Arial, sans-serif" font-size="28" font-weight="700" fill="#ffffff">Placeholder do fundador da empresa</text>
+</svg>
