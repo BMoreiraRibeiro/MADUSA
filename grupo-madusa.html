@@ -683,7 +683,8 @@
 
     @media (max-width: 899px) {
       .site-nav .container {
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
+        min-height: 72px;
       }
 
       .site-nav .btn-primary {
@@ -698,6 +699,14 @@
         display: none;
         border-top: 1px solid rgba(31, 86, 134, 0.15);
         background: #ffffff;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 60;
+        box-shadow: 0 16px 28px rgba(16, 37, 61, 0.14);
+        max-height: calc(100vh - 72px);
+        overflow-y: auto;
       }
 
       .mobile-panel.open {
@@ -706,6 +715,7 @@
 
       .brand {
         order: 1;
+        width: 102px;
       }
 
       .nav-actions {
@@ -717,6 +727,11 @@
         order: 3;
       }
 
+      .brand-logo {
+        width: 110px;
+        height: 110px;
+      }
+
       .mobile-panel ul {
         list-style: none;
         padding: 0.4rem 0 0.8rem;
@@ -726,7 +741,7 @@
         display: block;
         text-decoration: none;
         color: var(--blue-700);
-        padding: 0.7rem 0;
+        padding: 0.82rem 0;
         border-bottom: 1px dashed rgba(31, 86, 134, 0.15);
         text-transform: uppercase;
         letter-spacing: 0.08em;
@@ -1435,6 +1450,30 @@
         menuToggle.textContent = '☰';
         menuToggle.setAttribute('aria-label', translations[currentLang].menuOpen);
       });
+    });
+
+    document.addEventListener('click', function (event) {
+      if (!mobilePanel.classList.contains('open')) {
+        return;
+      }
+
+      if (siteNav && siteNav.contains(event.target)) {
+        return;
+      }
+
+      mobilePanel.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.textContent = '☰';
+      menuToggle.setAttribute('aria-label', translations[currentLang].menuOpen);
+    });
+
+    window.addEventListener('resize', function () {
+      if (window.innerWidth >= 900 && mobilePanel.classList.contains('open')) {
+        mobilePanel.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.textContent = '☰';
+        menuToggle.setAttribute('aria-label', translations[currentLang].menuOpen);
+      }
     });
 
     langToggle.addEventListener('click', function () {
